@@ -7,6 +7,9 @@
 /[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
 
 %head
+  %title DocTalk
+  -#%title= content_for?(:title) ? yield(:title) : "Untitled"
+
   %meta{ :charset => "utf-8" }
 
   -# Uncomment to make IE8 render like IE7
@@ -14,16 +17,22 @@
   
   -# Set the viewport width to device width for mobile
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-
-  %title= content_for?(:title) ? yield(:title) : "Untitled"
+  %meta{:name => "description", :content => "DocTalk is a collaboratively edited question and answer site for physicians and medical professionals. Registration required."}
 
   -# Included CSS Files
-  = stylesheet_link_tag "application"
+  = stylesheet_link_tag "application", :media => "all"
 
   -# Included JS Files
   = javascript_include_tag "application"
 
   = csrf_meta_tag
+  = favicon_link_tag '/favicon.ico'
 
 %body
   = yield
+
+
+
+
+
+
