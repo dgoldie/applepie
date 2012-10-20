@@ -5,4 +5,5 @@ Applepie::Application.routes.draw do
   root :to => "static_pages#landing_page"
   devise_for :users
   resources :users
+  match '/voice' => "static_pages#voice", :as => :voice
 end
