@@ -1,0 +1,27 @@
+class StaticPagesController < ApplicationController
+
+  def landing_page
+    respond_to do |format|
+      format.html {render :layout => false}        # turns off layout including stylesheets
+      #format.mobile {render :handlers => [:haml]}  # PSB: landing_page.mobile.haml
+      #format.mobile {render :layout => '/layouts/application.mobile.haml'}  # PSB: landing_page.mobile.haml
+    end
+  end
+
+  def credits
+    respond_to do |format|
+      format.html {render :layout => false}
+    end
+  end
+
+  def administration_page
+    if current_user.role == "admin"
+      respond_to do |format|
+        format.html {render :layout => true}
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+end
