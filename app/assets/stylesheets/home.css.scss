@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-h1 { color: red; }
-
-i { font-size: 10em; color: blue; }
+#home {
+  @extend .columns;
+  @extend .six;
+  @extend .centered;
+}
