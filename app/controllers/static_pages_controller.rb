@@ -8,9 +8,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  def credits
+  def about_us
     respond_to do |format|
-      format.html {render :layout => false}
+      format.html {render :layout => true}
     end
   end
 
