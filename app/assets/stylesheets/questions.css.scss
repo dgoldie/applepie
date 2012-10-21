@@ -61,27 +61,34 @@
 
 #voting {
   bottom: 0;
-  left: 0px;
+  left: 2em;
   position: absolute;
-  width: 9em;
+  width: auto;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
   display: inline-block;
-  padding: .3em .8em 0em;
-  background: rgb(234, 239, 255);
+  padding: .3em .8em .3em;
+  background: rgba(234, 239, 255,.5);
   font-size: 1.6em;
   b { margin-right: .4em;}
   * { vertical-align: middle; }
   a {
+    display: inline-block;
     width: 25px;
-    background: white;
-    border-radius: 100px;
-    i { text-align: center; }
+    height: 25px;
+    margin-left: .2em;
     overflow: visible;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 767px) {
     left: .4em;
     font-size: 1.2em;
     padding: .5em .5em .2em;
-    h1 { font-size: 1.7em !important;}
+    h1 { font-size: 1.7em !important; }
+    a {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 

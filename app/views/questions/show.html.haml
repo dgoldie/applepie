@@ -16,10 +16,9 @@
       %b
         = pluralize @question.reputation_for(:votes).to_i, "vote"
       -#- if current_user && !current_user.voted_for?(haiku)
-      |
-      = link_to "<i class='social foundicon-thumb-up'></i>  ".html_safe, vote_question_path(@question, type: "up"), method: "post"
-      |
-      = link_to "<i class='social foundicon-thumb-down'></i>  ".html_safe, vote_question_path(@question, type: "down"), method: "post"
+      = link_to "<i class='general-enclosed foundicon-up-arrow'></i>  ".html_safe, vote_question_path(@question, type: "up"), method: "post"
+      = link_to "<i class='general-enclosed foundicon-down-arrow'></i>  ".html_safe, vote_question_path(@question, type: "down"), method: "post"
+
 
     / = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
