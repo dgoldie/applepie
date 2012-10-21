@@ -27,7 +27,8 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   # GET /questions/new.json
   def new
-    @question = Question.new
+
+    @question = current_user.questions.new
 
     respond_to do |format|
       format.html # new.html.erb

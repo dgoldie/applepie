@@ -3,9 +3,15 @@
 %p
   %b Title:
   = @question.title
+
+%p
+  %b Tags:
+  = @question.tag_list
+
 %p
   %b Content:
   = @question.content
+
 %p
   %b Author:
   = @question.display_author

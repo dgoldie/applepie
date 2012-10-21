@@ -7,11 +7,11 @@ Applepie::Application.routes.draw do
   resources :answers
   resources :comments
 
-  # authenticated :user do
-  #   root :to => 'home#index'
-  # end
+  authenticated :user do
+     root :to => 'users#show'
+  end
 
-  root :to => "static_pages#landing_page"
+  root :to => 'static_pages#landing_page'
 
   match '/about_us' => 'static_pages#about_us', :as => :about_us
 
