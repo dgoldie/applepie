@@ -6,15 +6,15 @@ class VoiceController < ApplicationController
     
   end
   
-  def init_call  
-    current_user.to_json
+  def init_call 
+     
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_TOKEN)
 
     @account = @client.account
     @call = @account.calls.create({
       :from => '+14242752362',
-      :to => '+1#{current_user.phone}.to_s', :url => 'http://askadoc.herokuapp.com/voice/make_call',
+      :to => '+1' + current_user.phone, :url => 'http://askadoc.herokuapp.com/voice/make_call',
       :application_sid => 'AP3418c8bd94908cfd7581e36c052130a6'})
     
     redirect_to questions_path
