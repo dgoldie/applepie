@@ -9,5 +9,7 @@ Applepie::Application.routes.draw do
   match '/voice' => "voice#index"
   match '/voice/make_call' => "voice#make_call"
   match '/voice/init_call' => "voice#init_call"
+  match '/voice/recording' => "voice#recording"
+  
   
 end

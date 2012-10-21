@@ -27,4 +27,10 @@ class VoiceController < ApplicationController
 
   end
   
+  def recording
+    recording_url = params['RecordingUrl']
+    # email the recording url to the support team via sendhub.net ;)
+    puts "recording_url #{recording_url}"
+  end
+  
 end
