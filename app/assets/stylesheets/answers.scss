@@ -1,10 +1,47 @@
 #answers {
+  h4 {  }
   li {
+    position: relative;
     list-style: none;
     background: rgba(254, 255, 239,.7);
-    padding: .5em .6em .2em .9em;
+    padding: .5em .6em 2.2em .9em;
     margin-bottom: .5em;
     border:1px solid #eee;
     box-shadow: transparentize(#eee,.5) 3px 1px 4px;
+  }
+  #answer-user {
+    position: absolute;
+    bottom : 0;
+    right: 1em;
+    width: auto;
+    .user-link {
+      font-size: .9em;
+      position: relative;
+      top: 0px;
+      right: 0px;
+      .social { font-size: 1.2em; }
+    }
+  }
+  .add-comment {
+    position: absolute;
+    bottom: .1em;
+    left: 1em;
+  }
+  .comment {
+    background: rgba(240, 240, 240,.5);
+    box-shadow: transparentize(#eee,.5) 3px 1px 4px;
+    #comment-user {
+      position: absolute;
+      right: 1em;
+      top: .3em;
+      width: 10em;
+      .social { font-size: 1.2em; }
+      .user-link {
+        color: rgb(124, 167, 180);
+        top: 0em;
+        font-size: .9em;
+        position: absolute;
+      }
+    }
   }
 }
