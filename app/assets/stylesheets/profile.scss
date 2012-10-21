@@ -1,0 +1,16 @@
+#profile {
+  // .columns {border: 1px solid red;}
+
+  i {
+    margin-top: 20px;
+    font-size: 10em;
+    background: #eee;
+    padding: 20px 0 0 0;
+    border-radius: 5px;
+    @media (max-width: 767px) {
+      font-size:7em;
+      float: left;
+    }
+  }
+  p { font-size: 1.5em; }
+}

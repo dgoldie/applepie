@@ -1,14 +1,19 @@
-%h3 User
+#profile.eight.columns.centered
+  %div.row
+    %div.columns.three
+      %i.social.foundicon-torso
 
-%p
-  User: #{@user.name}
-  (
-  = @user.reputation_for(:votes).to_i
-  votes )
+    %div.columns.nine
+      %h3
+        #{@user.name}
+        (
+        = @user.reputation_for(:votes).to_i
+        votes )
+      %p
+        Salutation: #{@user.salutation}
+      %p
+        Email: #{@user.email if @user.email}
 
-%p
-  Email: #{@user.email if @user.email}
-
-%p
-  %a{:href => "previous.html", :onClick => "history.back();return false;", :class => "btn" }
-    Go back
+      %p
+        %a{:href => "previous.html", :onClick => "history.back();return false;", :class => "btn" }
+          Go back
