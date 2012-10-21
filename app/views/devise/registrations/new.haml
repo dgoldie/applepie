@@ -7,6 +7,10 @@
     %div
       = f.email_field :email
     %div
+      = f.text_field :salutation, :placeholder => :"Cardiologist, etc."
+    %div
+      = f.text_field :phone, :placeholder => :"9897823456 (ten digits, only numbers)", :maxlength => 10
+    %div
       = f.password_field :password
     %div
       = f.password_field :password_confirmation
