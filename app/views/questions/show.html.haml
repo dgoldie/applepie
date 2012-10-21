@@ -3,6 +3,9 @@
   .question
     %p#notice= notice
 
+    %h3
+      Question:
+
     %h1
       = @question.title
     = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
@@ -26,8 +29,20 @@
     = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
     #answer-it
-      =link_to "A", answers_path
+      =link_to "A", new_question_answer_path(@question)
+
+  %p
+    Answers:
+    %ul
+      -@question.answers.each do |answer|
+        %li
+          = answer.name
+          = answer.content
+          = answer.user.name
+        -#%br
+      
 
 
-%p
-  =link_to "Add an answer", new_answer_path
+
+  %p
+    =link_to "Add an answer", new_question_answer_path(@question)

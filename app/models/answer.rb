@@ -9,4 +9,8 @@ class Answer < ActiveRecord::Base
   # PSB: Below needed for voting system
   has_reputation :votes, source: :user, aggregated_by: :sum
 
+  def display_author
+    user.blank? ? "<Anonymous>" : user.name
+  end
+
 end
