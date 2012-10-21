@@ -53,7 +53,7 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to C, notice: 'Answer was successfully created.' }
+        format.html { redirect_to question_path(@question), notice: 'Answer was successfully created.' }
         format.json { render json: @question, status: :created, location: @answer }
       else
         format.html { render action: "new" }
