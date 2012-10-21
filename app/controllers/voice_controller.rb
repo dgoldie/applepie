@@ -40,7 +40,7 @@ class VoiceController < ApplicationController
     transcribe_data = params[:TranscriptionText].to_s
     recording_url = params[:RecordingUrl].to_s
     @user = User.find_by_phone(params[:Called][2, 10])
-    puts "THIS IS THE USER ID => #{user_id}"
+    puts "THIS IS THE USER object => #{@user}"
     puts "recording_url #{recording_url}"
     puts "transcribe_data #{transcribe_data}"
     
