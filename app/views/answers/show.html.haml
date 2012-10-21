@@ -31,8 +31,11 @@
   = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, answers_path
 
 
-= link_to 'Edit', edit_answer_path(@answer)
+= link_to 'Add a comment', new_question_answer_comment_path(@question.id, @answer.id)
+
+
+= link_to 'Edit', edit_question_answer_path(@answer)
 \|
-= link_to 'Back', answers_path
+= link_to 'Back', question_answers_path
 \|
-= link_to 'Show all', answers_path
+= link_to 'Show all', question_answers_path
