@@ -17,28 +17,34 @@ class VoiceController < ApplicationController
       :to => '+18175848815', :url => 'http://askadoc.herokuapp.com/voice/make_call',
       :application_sid => 'AP3418c8bd94908cfd7581e36c052130a6'})
     
+    redirect_to questions_path
+    
   end
   
   def make_call
     
     puts "twilio called me"
     
-    render :action => "response.xml.builder", :layout => false
+    render :action => "response.xml", :layout => false
 
   end
   
   def recording
     puts "I am in RECORDING!!!"
-    recording_url = params['RecordingUrl']
-    # email the recording url to the support team via sendhub.net ;)
-    puts "recording_url #{recording_url}"
+    
+    render :xml => "<success/>"
   end
   
-  def transcribe
+  def transcribing
     puts "I am in Transcribe!!!"
-    transcribing_url = params[].to_json
-    # puts the transcribing url;)
+    transcribing_url = params[:TranscriptionText].to_s
+    recording_url = params[:RecordingUrl]
+    user_id = User.find_by_phone(params[:Called][2, 10])
+    puts "THIS IS THE USER ID => #{user_id}"
+    puts "recording_url #{recording_url}"
     puts "transcribing_url #{transcribing_url}"
+            
+    render :xml => "<success/>"
   end
   
 end
