@@ -5,15 +5,14 @@ Applepie::Application.routes.draw do
 
   resources :questions do
     member {post :vote}
-    resources :answers
-    #resources :answers do
-    #  member {post :vote}
-    #end
+    resources :answers do
+     member {post :vote}
+    end
   end
 
-  resources :answers do
-    member {post :vote}
-  end
+  # resources :answers do
+  #   member {post :vote}
+  # end
 
   resources :comments
 
