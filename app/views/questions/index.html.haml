@@ -1,6 +1,6 @@
 %h1 Listing questions
 %h3
-  = "Author: #{current_user.name}"
+  -#= "Author: #{question.display_author}"
 %table
   %tr
     %th Title
@@ -13,7 +13,7 @@
     %tr
       %td= question.title
       %td= question.content
-      -#%td= question.display_author
+      %td= question.display_author
       %td= link_to 'Show', question
       %td= link_to 'Edit', edit_question_path(question)
       %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
