@@ -7,7 +7,7 @@ class VoiceController < ApplicationController
   end
   
   def init_call  
-
+    current_user.to_json
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_TOKEN)
 
