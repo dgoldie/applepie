@@ -1,0 +1,10 @@
+#answers {
+  li {
+    list-style: none;
+    background: rgba(254, 255, 239,.7);
+    padding: .5em .6em .2em .9em;
+    margin-bottom: .5em;
+    border:1px solid #eee;
+    box-shadow: transparentize(#eee,.5) 3px 1px 4px;
+  }
+}
