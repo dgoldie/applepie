@@ -1,9 +1,7 @@
 class VoiceController < ApplicationController
   
   skip_before_filter :authenticate_admin!
-  
-  BASE_URL = "http://askadoc.herokuapp.com/voice"
-  
+    
   def check_have_phonenumber
     
   end
