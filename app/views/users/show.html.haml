@@ -1,8 +1,14 @@
 %h3 User
+
 %p
   User: #{@user.name}
   (
   = @user.reputation_for(:votes).to_i
   votes )
+
 %p
   Email: #{@user.email if @user.email}
+
+%p
+  %a{:href => "previous.html", :onClick => "history.back();return false;", :class => "btn" }
+    Go back

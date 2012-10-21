@@ -7,8 +7,10 @@ Applepie::Application.routes.draw do
     member {post :vote}
   end
 
+  resources :answers do
+    member {post :vote}
+  end
 
-  resources :answers
   resources :comments
 
   authenticated :user do

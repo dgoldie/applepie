@@ -4,6 +4,12 @@ class AnswersController < ApplicationController
   def index
     @answers = Answer.all
 
+    if params[:tag]
+      @answers = Answer.tagged_with(params[:tag]).find_with_reputation(:votes, :all, order: "votes desc")
+    else
+      @answers = Answer.find_with_reputation(:votes, :all, order: "votes desc")
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @answers }

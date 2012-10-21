@@ -6,4 +6,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :comments
 
+  # PSB: Below needed for voting system
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
 end
