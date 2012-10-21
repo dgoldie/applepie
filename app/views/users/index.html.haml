@@ -3,4 +3,7 @@
   - @users.each do |user|
     %li
       = link_to user.name, user
+      (
+      = user.reputation_for(:votes).to_i
+      votes )
       signed up #{user.created_at.to_date}

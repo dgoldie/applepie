@@ -3,7 +3,11 @@ Applepie::Application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :questions
+  resources :questions do
+    member {post :vote}
+  end
+
+
   resources :answers
   resources :comments
 

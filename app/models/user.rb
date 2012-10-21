@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :comments
 
+  has_reputation :votes, source: {reputation: :votes, of: :questions}, aggregated_by: :sum
+
 end

@@ -14,7 +14,15 @@
 
 %p
   %b Author:
-  = @question.display_author
+  = link_to "#{@question.display_author}", user_path(@question.user.id)
+
+  = pluralize @question.reputation_for(:votes).to_i, "vote"
+  -#- if current_user && !current_user.voted_for?(haiku)
+  |
+  = link_to "up", vote_question_path(@question, type: "up"), method: "post"
+  |
+  = link_to "down", vote_question_path(@question, type: "down"), method: "post"
+
 
 = link_to 'Edit', edit_question_path(@question)
 \|
