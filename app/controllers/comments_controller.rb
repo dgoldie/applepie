@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_filter :load_question_and_answer
+
   # GET /comments
   # GET /comments.json
   def index
@@ -44,7 +47,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to question_path(@question), notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
@@ -80,4 +83,12 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def load_question_and_answer
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:answer_id])
+  end
+
 end

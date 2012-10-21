@@ -1,4 +1,4 @@
-#question-show.ten.offset-by-one.mobile-four
+#question-show
 
   .question
     %p#notice= notice
@@ -28,14 +28,13 @@
       =link_to "Answer this", new_question_answer_path(@question)
 
   #answers
-    %h4
-      Answers:
     %ol
       -@question.answers.each do |answer|
         %li.ten.colomns.offset-by-one.mobile-four
           %h5= answer.name
           %p= answer.content
+          = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
+
           -#= answer.user.name
         -#%br
-
 
