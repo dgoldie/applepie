@@ -1,4 +1,8 @@
 Applepie::Application.routes.draw do
+  resources :comments
+
+  resources :answers
+
   resources :questions
 
   # authenticated :user do
