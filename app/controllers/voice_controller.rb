@@ -38,7 +38,7 @@ class VoiceController < ApplicationController
     return "Success"
   end
   
-  def transcribe
+  def transcribing
     puts "I am in Transcribe!!!"
     transcribing_url = params[].to_json
     # puts the transcribing url;)
