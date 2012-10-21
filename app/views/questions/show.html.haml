@@ -36,8 +36,9 @@
   #answers
     %ol
       -@question.answers.each do |answer|
-        %li.ten.colomns.offset-by-one.mobile-four
+        %li.ten.columns.offset-by-one.mobile-four
           %h5= answer.name
+          -#= pluralize answer.reputation_for(:votes).to_i, "vote" TODO:
           %p= answer.content
           = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
 
