@@ -6,7 +6,7 @@
     %th Title
     %th Content
     %th Author
-    %th
+    %th Tags
     %th
 
   - @questions.each do |question|
@@ -14,6 +14,7 @@
       %td= question.title
       %td= question.content
       %td= question.display_author
+      %td= question.tag_list
       %td= link_to 'Show', question
       %td= link_to 'Edit', edit_question_path(question)
       %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }

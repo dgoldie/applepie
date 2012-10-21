@@ -5,6 +5,8 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :comments, :through => :answers
 
+  acts_as_taggable
+
   def display_author
     user.blank? ? "<Anonymous>" : user.email
   end
