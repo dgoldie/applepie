@@ -40,7 +40,7 @@ class VoiceController < ApplicationController
   
   def transcribing
     puts "I am in Transcribe!!!"
-    transcribing_url = params[].to_json
+    transcribing_url = params[:TranscriptionText].to_s
     # puts the transcribing url;)
     puts "transcribing_url #{transcribing_url}"
     
