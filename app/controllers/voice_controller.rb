@@ -17,6 +17,8 @@ class VoiceController < ApplicationController
       :to => '+18175848815', :url => 'http://askadoc.herokuapp.com/voice/make_call',
       :application_sid => 'AP3418c8bd94908cfd7581e36c052130a6'})
     
+    redirect_to questions_path
+    
   end
   
   def make_call
@@ -32,6 +34,8 @@ class VoiceController < ApplicationController
     recording_url = params['RecordingUrl']
     # email the recording url to the support team via sendhub.net ;)
     puts "recording_url #{recording_url}"
+    
+    return "Success"
   end
   
   def transcribe
@@ -39,6 +43,8 @@ class VoiceController < ApplicationController
     transcribing_url = params[].to_json
     # puts the transcribing url;)
     puts "transcribing_url #{transcribing_url}"
+    
+    return "Success"
   end
   
 end
