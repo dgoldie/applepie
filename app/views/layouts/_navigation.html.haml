@@ -28,6 +28,11 @@
   %section
     %ul.right
       %li
+        - if @current_user.nil?
+          = link_to "#{@user.name}", user_path(@user.id.to_s)
+        -else
+          = link_to "#{@current_user.name}", user_path(@current_user.id.to_s)
+      %li
         = link_to 'Edit account', edit_user_registration_path
       %li
         = link_to 'Logout', destroy_user_session_path, :method=>'delete'
