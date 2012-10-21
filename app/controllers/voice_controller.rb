@@ -20,7 +20,7 @@ class VoiceController < ApplicationController
       :application_sid => 'AP94d5494815c74e5bb58d919105eed1e4'})
     
     puts "inspect =>" + @call.inspect
-    puts "json => #@call.to_json"
+    puts "json => #{@call.to_json}"
     
   end
   
