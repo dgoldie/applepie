@@ -13,6 +13,8 @@ Applepie::Application.routes.draw do
 
   root :to => 'static_pages#landing_page'
 
+  get 'tags/:tag', to: 'questions#index', as: :tag
+
   match '/about_us' => 'static_pages#about_us', :as => :about_us
 
 end

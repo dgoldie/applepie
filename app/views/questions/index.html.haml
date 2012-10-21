@@ -1,24 +1,14 @@
 %h1 Listing questions
-%h3
-  -#= "Author: #{question.display_author}"
-%table
-  %tr
-    %th Title
-    %th Content
-    %th Author
-    %th Tags
-    %th
 
+%ol#questions-index
   - @questions.each do |question|
-    %tr
-      %td= question.title
-      %td= question.content
-      %td= question.display_author
-      %td= question.tag_list
-      %td= link_to 'Show', question
-      %td= link_to 'Edit', edit_question_path(question)
-      %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+    %li
+      %article.question
+        %h3= link_to "#{question.title}", question
+        %p= question.content
+        %span= link_to "#{question.display_author}", question.user
+        .tags= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+
 
 = link_to 'New Question', new_question_path
