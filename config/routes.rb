@@ -1,7 +1,6 @@
 Applepie::Application.routes.draw do
 
   devise_for :users
-<<<<<<< HEAD
   resources :users
 
   resources :questions do
@@ -21,8 +20,6 @@ Applepie::Application.routes.draw do
   get 'tags/:tag', to: 'questions#index', as: :tag
 
   match '/about_us' => 'static_pages#about_us', :as => :about_us
-
-  resources :users
 
   match '/voice' => "voice#index"
   match '/voice/make_call' => "voice#make_call"
