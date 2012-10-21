@@ -37,12 +37,14 @@ class VoiceController < ApplicationController
   
   def transcribing
     puts "I am in Transcribe!!!"
-    transcribing_url = params[:TranscriptionText].to_s
-    recording_url = params[:RecordingUrl]
-    user_id = User.find_by_phone(params[:Called][2, 10])
+    transcribe_data = params[:TranscriptionText].to_s
+    recording_url = params[:RecordingUrl].to_s
+    @user = User.find_by_phone(params[:Called][2, 10])
     puts "THIS IS THE USER ID => #{user_id}"
     puts "recording_url #{recording_url}"
-    puts "transcribing_url #{transcribing_url}"
+    puts "transcribe_data #{transcribe_data}"
+    
+    @user.questions.create!(:title => transcribe_data, :content => recording_url)
             
     render :xml => "<success/>"
   end
