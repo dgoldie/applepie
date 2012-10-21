@@ -10,3 +10,5 @@
         .tags= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
 = link_to 'New Question', new_question_path
+\|
+= link_to 'Show all', questions_path

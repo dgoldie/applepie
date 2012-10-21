@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
   #   questions_path
   # end
 
+
+
 end
