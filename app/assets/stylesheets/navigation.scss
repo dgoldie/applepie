@@ -5,3 +5,18 @@
   }
   i { font-size: 1.4em; }
 }
+#phone {
+  position:absolute;
+  left: 300px;
+  font-size: 2.6em;
+  padding: .3em .4em .1em;
+  background: #222222;
+  border-radius: 100px;
+  z-index: 100;
+  a { color: rgb(242, 226, 255);}
+  @media (max-width: 767px) {
+    left: 140px;
+    background: black;
+
+  }
+}

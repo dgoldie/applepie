@@ -10,5 +10,6 @@
     - if devise_mapping.rememberable?
       %div
         = f.check_box :remember_me
-    %div= f.submit "Sign in"
+    %div.columns.three.centered
+      = f.submit "Sign in"
   = render "devise/shared/links"

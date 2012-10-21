@@ -1,4 +1,6 @@
-= link_to "Ask a Question", "http://doctalk.herokuapp.com/voice/init_call"
+#phone{:onclick => "location.href='http://doctalk.herokuapp.com/voice/init_call';", :style => "cursor: pointer;"}
+  = link_to "<i class='foundicon-phone'></i>  ".html_safe, "http://askadoc.herokuapp.com/voice/init_call"
+
 
 / = link_to "Applepie", root_path, :class => 'brand'
 / %ul.nav
