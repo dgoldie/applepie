@@ -50,10 +50,10 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = @question.answers.new(params[:answer])
-
+    @answer.user = current_user
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @question, notice: 'Answer was successfully created.' }
+        format.html { redirect_to C, notice: 'Answer was successfully created.' }
         format.json { render json: @question, status: :created, location: @answer }
       else
         format.html { render action: "new" }
@@ -85,7 +85,7 @@ class AnswersController < ApplicationController
     @answer.destroy
 
     respond_to do |format|
-      format.html { redirect_to answers_url }
+      format.html { redirect_to question_answers_path(@question) }
       format.json { head :no_content }
     end
   end
