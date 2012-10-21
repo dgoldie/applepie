@@ -23,7 +23,7 @@
 
     / = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
-    = link_to 'Edit', edit_question_path(@question), :class => "edit-link"
+    = link_to "<i class='foundicon-edit'></i>  ".html_safe, edit_question_path(@question), :class => "edit-link"
     #answer-it
       =link_to "Answer this", new_question_answer_path(@question)
 
