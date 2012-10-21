@@ -1,21 +1,30 @@
 #question
   %p#notice= notice
 
-  %p
-    %b Title:
-    = @question.title
-  %p
-    %b Tags:
-    = raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+%p
+  %b Title:
+  = @question.title
 
-  %p
-    %b Content:
-    = @question.content
+%p
+  %b Tags:
+  = raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
-  %p
-    %b Author:
-    = @question.display_author
+%p
+  %b Content:
+  = @question.content
 
-  = link_to 'Edit', edit_question_path(@question)
-  \|
-  = link_to 'Back', questions_path
+%p
+  %b Author:
+  = link_to "#{@question.display_author}", user_path(@question.user.id)
+
+  = pluralize @question.reputation_for(:votes).to_i, "vote"
+  -#- if current_user && !current_user.voted_for?(haiku)
+  |
+  = link_to "up", vote_question_path(@question, type: "up"), method: "post"
+  |
+  = link_to "down", vote_question_path(@question, type: "down"), method: "post"
+
+
+= link_to 'Edit', edit_question_path(@question)
+\|
+= link_to 'Back', questions_path

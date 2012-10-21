@@ -6,9 +6,9 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
+      @questions = Question.tagged_with(params[:tag]).find_with_reputation(:votes, :all, order: "votes desc")
     else
-      @questions = Question.all
+      @questions = Question.find_with_reputation(:votes, :all, order: "votes desc")
     end
     Rails.logger.debug "current user = #{current_user.inspect}"
     respond_to do |format|
@@ -90,4 +90,12 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @question = Question.find(params[:id])
+    @question.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
+  end
+
 end
