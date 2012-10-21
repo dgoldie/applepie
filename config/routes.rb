@@ -4,6 +4,10 @@ Applepie::Application.routes.draw do
   end
   root :to => "static_pages#landing_page"
   devise_for :users
-  resources :users
-  match '/voice' => "static_pages#voice", :as => :voice
+  resources :users, :voices
+
+  match '/voice' => "voice#index"
+  match '/voice/make_call' => "voice#make_call"
+  match '/voice/init_call' => "voice#init_call"
+  
 end
