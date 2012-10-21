@@ -6,12 +6,12 @@ gem 'rails', '3.2.8'
 group :development, :test do
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
-
 end
 
-gem 'foundation_rails_helper', :git => 'https://github.com/dgoldie/foundation_rails_helper.git'
+gem 'foundation_rails_helper', :github => 'dgoldie/foundation_rails_helper'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

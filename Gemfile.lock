@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/dgoldie/foundation_rails_helper.git
+  remote: git://github.com/dgoldie/foundation_rails_helper.git
   revision: 73797c64d57036ebdf823412e760d3a606ce3a85
   specs:
     foundation_rails_helper (0.3.alpha)
