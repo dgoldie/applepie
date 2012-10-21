@@ -7,9 +7,9 @@ Applepie::Application.routes.draw do
   resources :answers
   resources :comments
 
-  authenticated :user do
-     root :to => 'users#show'
-  end
+  #authenticated :user do
+  #   root :to => 'users#show'
+  #end
 
   root :to => 'static_pages#landing_page'
 
