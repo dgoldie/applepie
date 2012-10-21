@@ -44,4 +44,3 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'activerecord-reputation-system', require: 'reputation_system'
 
 gem "twilio-ruby"
-gem "builder"
