@@ -1,30 +1,29 @@
-#question
-  %p#notice= notice
+#question-show
 
-%p
-  %b Title:
-  = @question.title
+  .question
+    %p#notice= notice
 
-%p
-  %b Tags:
-  = raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+    %h1
+      = @question.title
+    = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
+    %p
+      = @question.content
+    %p
+      %b Tags:
+      = raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
-%p
-  %b Content:
-  = @question.content
+    #voting
+      = pluralize @question.reputation_for(:votes).to_i, "vote"
+      -#- if current_user && !current_user.voted_for?(haiku)
+      |
+      = link_to "<i class='social foundicon-thumb-up'></i>  ".html_safe, vote_question_path(@question, type: "up"), method: "post"
+      |
+      = link_to "<i class='social foundicon-thumb-down'></i>  ".html_safe, vote_question_path(@question, type: "down"), method: "post"
 
-%p
-  %b Author:
-  = link_to "#{@question.display_author}", user_path(@question.user.id)
+    -if current_user ==  @question.user
+      = link_to 'Edit', edit_question_path(@question)
+      \|
+    = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
-  = pluralize @question.reputation_for(:votes).to_i, "vote"
-  -#- if current_user && !current_user.voted_for?(haiku)
-  |
-  = link_to "up", vote_question_path(@question, type: "up"), method: "post"
-  |
-  = link_to "down", vote_question_path(@question, type: "down"), method: "post"
-
-
-= link_to 'Edit', edit_question_path(@question)
-\|
-= link_to 'Back', questions_path
+    #answer-it
+      =link_to "A", answers_path
