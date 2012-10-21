@@ -32,6 +32,9 @@
       =link_to "A", new_question_answer_path(@question)
 
 %p
+  = link_to 'Show all questions', questions_path
+
+%p
   Answers:
   %ul
     -@question.answers.each do |answer|
@@ -39,6 +42,7 @@
         = answer.name
         = answer.content
         -#= answer.user.name
+        = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
       -#%br
     
 
