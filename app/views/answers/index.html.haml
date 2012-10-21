@@ -1,14 +1,7 @@
-%h1 Listing answers
+.ten.offset-by-one.mobile-four
+  %h1 Listing answers
 
-%table
-  %tr
-    %th Name
-    %th Content
-    %th
-    %th
-    %th
-
-  - @answers.each do |answer|
+  %table
     %tr
       %td= answer.name
       %td= answer.content
@@ -16,6 +9,5 @@
       %td= link_to 'Edit', edit_question_answer_path(@question, answer)
       %td= link_to 'Destroy',  [@question, answer], method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Answer', new_question_answer_path(@question)
+  %br
+  = link_to 'New Answer', new_question_answer_path(@question)
