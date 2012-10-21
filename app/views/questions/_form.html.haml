@@ -1,9 +1,12 @@
-= form_for @question do |f|
+= form_for @question, :html => { :multipart => true } do |f|
 
   .field
     = f.text_field :title
   .field
     = f.text_area :content
+
+  = f.file_field :attachment                                 #PSB: for paperclip attachments
+
   .field
     = f.text_field :tag_list, :placeholder => "( seperated by commas please )"
   .actions
