@@ -26,22 +26,17 @@
     = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
     #answer-it
-      =link_to "A", answers_path
-
-
-%p
-  =link_to "Show answers", question_answers_path(@question.id)
-
+      =link_to "A", "#"
 
 %p
   %ul
-    - @question.answers.each do |answer|
-      %li
-        = link_to answer.name, @answer
-        (
-        = @answer.reputation_for(:votes).to_i
-        votes )
-        Entered #{@answer.created_at.to_date}
+    -@question.answers.each do |answer|
+      %p=answer.name
+      %p=answer.content
+      %br
+    
+
+
 
 %p
-  =link_to "Add an answer", new_answer_path
+  =link_to "Add an answer", new_question_answer_path(@question)

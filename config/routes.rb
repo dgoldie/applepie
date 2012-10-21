@@ -12,9 +12,9 @@ Applepie::Application.routes.draw do
     end
   end
 
-  #resources :answers do
-  #  member {post :vote}
-  #end
+  # resources :answers do
+  #   member {post :vote}
+  # end
 
   #resources :comments
 
