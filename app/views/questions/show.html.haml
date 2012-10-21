@@ -41,8 +41,22 @@
       %li
         = answer.name
         = answer.content
-        -#= answer.user.name
+        = answer.question.user.name
+        (
+        = answer.question.user.reputation_for(:votes).to_i
+        votes )
+        %br
+          Comments:
+        %ul
+          -answer.comments.each do |comment|
+            %li
+              = comment.content
+
         = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
+
+
+
+
       -#%br
     
 
