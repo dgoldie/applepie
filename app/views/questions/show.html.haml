@@ -11,12 +11,13 @@
     = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
     %p
       = @question.content
-    %p
+    %p#tags
       %b Tags:
       = raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
     #voting
-      = pluralize @question.reputation_for(:votes).to_i, "vote"
+      %b
+        = pluralize @question.reputation_for(:votes).to_i, "vote"
       -#- if current_user && !current_user.voted_for?(haiku)
       |
       = link_to "<i class='social foundicon-thumb-up'></i>  ".html_safe, vote_question_path(@question, type: "up"), method: "post"
@@ -28,11 +29,17 @@
       \|
     = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
+    = link_to "<i class='foundicon-edit'></i>  ".html_safe, edit_question_path(@question), :class => "edit-link"
     #answer-it
-      =link_to "A", new_question_answer_path(@question)
+      =link_to "Answer this", new_question_answer_path(@question)
 
-%p
-  = link_to 'Show all questions', questions_path
+  #answers
+    %ol
+      -@question.answers.each do |answer|
+        %li.ten.colomns.offset-by-one.mobile-four
+          %h5= answer.name
+          %p= answer.content
+          = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
 
 %p
   Answers:
@@ -59,8 +66,6 @@
 
       -#%br
     
+          -#= answer.user.name
+        -#%br
 
-
-
-%p
-  =link_to "Add an answer", new_question_answer_path(@question)

@@ -15,13 +15,24 @@
 .question {
   border: 1px solid #eee;
   padding: .8em 3em;
-  margin: 1em;
+  margin-bottom: .5em;
   position: relative;
   box-shadow: transparentize(#eee,.5) 3px 1px 4px;
   @media (max-width: 600px) {
     padding: .2em .5em;
-    h1 { font-size: .7em !important;}
+    h1 { font-size: 1.7em !important;}
   }
+  .edit-link {
+    right: 1.4em;
+    top: 1.9em;
+    font-size: 1.7em;
+    position: absolute;
+    @media (max-width: 600px) {
+      top: .8em;
+    }
+  }
+  .foundicon-left-arrow { font-size: 1.7em; }
+  #tags { margin-bottom: 3em;}
 }
 
 .user-link {
@@ -50,30 +61,46 @@
 
 #voting {
   bottom: 0;
-  right: 4.5em;
+  left: 0px;
   position: absolute;
-  width: auto;
+  width: 9em;
   display: inline-block;
-  padding: .3em .8em;
-  border: 1px solid #eee;
+  padding: .3em .8em 0em;
+  background: rgb(234, 239, 255);
   font-size: 1.6em;
+  b { margin-right: .4em;}
   * { vertical-align: middle; }
+  a {
+    width: 25px;
+    background: white;
+    border-radius: 100px;
+    i { text-align: center; }
+    overflow: visible;
+  }
+  @media (max-width: 600px) {
+    left: .4em;
+    font-size: 1.2em;
+    padding: .5em .5em .2em;
+    h1 { font-size: 1.7em !important;}
+  }
 }
 
 #answer-it {
-  border-radius: 100%;
-  width: 1.5em;
-  height: 1.5em;
+  width: 8em;
+  line-height: 2em;
   text-align: center;
   border: 1px solid #eee;
-  background:white;
-  bottom: -.3em;
-  right: -.3em;
-  padding: .2em;
+  background: rgb(247, 255, 248);
+  bottom: 0em;
+  right: 0em;
+  padding: 0 1em;
   position: absolute;
-  font-size: 4em;
+  font-size: 1.4em;
   &:hover {
     background: rgb(247, 247, 247);
-  a { color: red !important; }
+    a { color: red !important; }
+  }
+  @media (max-width: 600px) {
+    font-size: 1em;
   }
 }
