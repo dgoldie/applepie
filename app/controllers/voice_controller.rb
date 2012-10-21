@@ -43,7 +43,7 @@ class VoiceController < ApplicationController
     puts "THIS IS THE USER ID => #{user_id}"
     puts "recording_url #{recording_url}"
     puts "transcribing_url #{transcribing_url}"
-        
+            
     render :xml => "<success/>"
   end
   
