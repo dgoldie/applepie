@@ -35,7 +35,7 @@ class VoiceController < ApplicationController
     # email the recording url to the support team via sendhub.net ;)
     puts "recording_url #{recording_url}"
     
-    return "Success"
+    render :nothing
   end
   
   def transcribing
@@ -44,7 +44,7 @@ class VoiceController < ApplicationController
     # puts the transcribing url;)
     puts "transcribing_url #{transcribing_url}"
     
-    return "Success"
+    render :nothing
   end
   
 end
