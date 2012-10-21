@@ -1,7 +1,18 @@
-%h1
-  Welcome to DocTalk!
+#splash
+  %h1
+    DocTalk
 
-%i.foundicon-smiley
+  %h3
+    Where Medical Minds Combine
+  .row
+    #learn-more
+      =link_to 'Learn More &raquo;'.html_safe, about_us_path
 
-%br
-=link_to 'About us', about_us_path
+  .row
+    #sign-in
+      = link_to 'Sign In', new_user_session_path
+
+  %br
+
+
+

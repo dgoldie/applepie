@@ -1,8 +1,6 @@
+
 #wrapper {
   @extend .row;
 }
-
-
-h1 { color: red; }
-
-i { font-size: 2em; color: white; }
+.row { border: 1px solid pink;}
+.columns { border: 1px solid #eee;}

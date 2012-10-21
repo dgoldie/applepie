@@ -1,0 +1,29 @@
+#splash {
+  @extend .five;
+  @extend .centered;
+  @extend .columns;
+  @extend .mobile-four;
+  h1 { color: green; }
+  h3 { font-size: 1.2em; }
+}
+
+#learn-more {
+  font-size: 1.8em;
+  margin: 1.2em 0 1.5em;
+  @extend .nine;
+  @extend .columns;
+  @extend .push-two;
+  @extend .mobile-three;
+  padding-left: 1em;
+
+}
+
+#sign-in {
+  @extend .six;
+  @extend .centered;
+  @extend .columns;
+  a {
+    @extend .large;
+    @extend .button;
+  }
+}

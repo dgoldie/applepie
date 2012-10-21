@@ -1,0 +1,15 @@
+.user-creds {
+  @extend .columns;
+  @extend .six;
+  @extend .push-three;
+  input { @extend .large }
+}
+
+#devise-helpers {
+  a {
+    font-size: 1.2em;
+    margin: .3em 1em .4em 4em;
+    float: right;
+    width: auto;
+  }
+}
