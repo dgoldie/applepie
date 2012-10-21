@@ -14,4 +14,5 @@ class Question < ActiveRecord::Base
   def display_author
     user.blank? ? "<Anonymous>" : user.name
   end
+
 end

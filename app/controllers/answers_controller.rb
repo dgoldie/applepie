@@ -86,4 +86,12 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @answer = Answer.find(params[:id])
+    @answer.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting."
+  end
+
 end
