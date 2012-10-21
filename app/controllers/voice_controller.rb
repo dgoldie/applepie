@@ -23,8 +23,10 @@ class VoiceController < ApplicationController
     
     puts "twilio called me"
     
-    @r = Twilio::TwiML::Response.new
-    @r.addSay "Ask your question after the beep and we will text you as soon as we have a response."
+    response = Twilio::TwiML::Response.new do |r|
+      r.Say 'Ask your question after the beep and we will text you as soon as we have a response.', :voice => 'woman'
+    end
+
     render :content_type => 'application/xml', :text => @r.respond
 
   end
