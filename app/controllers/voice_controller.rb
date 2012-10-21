@@ -24,18 +24,11 @@ class VoiceController < ApplicationController
   def make_call
     
     puts "twilio called me"
-    # @r = Twilio::Response.new
-    #     @r.addSay "Just ask a question and we will let you know as soon as someone gives you an answer."
-    render :action => 'response.xml.builder', :layout => false
     
-    # response = Twilio::TwiML::Response.new do |r|
-    #       r.Say 'Just ask a question and we will let you know as soon as someone gives you an answer.', :voice => 'woman'
-    #       r.Dial :callerId => '+14159992222' do |d|
-    #         d.Client 'DocTalk'
-    #       end
-    #     end
-    #     render :content_type => 'application/xml', :text => r.respond
-    
+    @r = Twilio::Response.new
+    @r.addSay "I am talking to you."
+    render :content_type => 'application/xml', :text => @r.respond
+
   end
   
 end
