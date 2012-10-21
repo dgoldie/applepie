@@ -14,7 +14,7 @@ class Question < ActiveRecord::Base
   has_reputation :votes, source: :user, aggregated_by: :sum
 
   # PSB: Below needed for paperclip attachments
-  has_attached_file :attachment, :styles => { :small => "200x200>" }
+  # has_attached_file :attachment, :styles => { :small => "200x200>" }
 
   def display_author
     user.blank? ? "<Anonymous>" : user.name

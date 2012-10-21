@@ -42,6 +42,6 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'activerecord-reputation-system', require: 'reputation_system'
-gem 'paperclip', '~> 3.0'
+# gem 'paperclip', '~> 3.0'
 
 gem "twilio-ruby"
