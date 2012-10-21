@@ -2,7 +2,8 @@ class Question < ActiveRecord::Base
   attr_accessible :content, :title
   
   belongs_to :user
-  
+  has_many :answers
+  has_many :comments, :through => :answers
 
   def display_author
     user.blank? ? "<Anonymous>" : user.email
