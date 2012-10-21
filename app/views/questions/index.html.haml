@@ -11,7 +11,7 @@
 
   - @questions.each do |question|
     %tr
-      %td= question.title
+      %td= link_to "#{question.title}", question_path(question.id)
       %td= question.content
       %td= question.display_author
       %td= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
