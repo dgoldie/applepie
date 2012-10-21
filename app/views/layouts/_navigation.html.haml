@@ -23,15 +23,18 @@
         %i.foundicon-search
     %li
       = link_to "Ask", new_question_path, :id => 'ask'
-    %li.toggle-topbar
-      %a{:href => "#"}
+    - unless current_user.nil?
+      %li.toggle-topbar
+        %a{:href => "#"}
+
   %section
     %ul.right
       %li
         - unless current_user.nil?
           = link_to "#{current_user.name}", user_path(current_user.id.to_s)
-      %li
-        = link_to 'Edit account', edit_user_registration_path
+      - unless current_user.nil?
+        %li
+          = link_to 'Edit account', edit_user_registration_path
       %li
         - unless current_user.nil?
           = link_to 'Logout', destroy_user_session_path, :method=>'delete'
