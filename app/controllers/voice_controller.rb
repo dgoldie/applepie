@@ -15,7 +15,7 @@ class VoiceController < ApplicationController
     @call = @account.calls.create({
       :from => '+14242752362',
       :to => '+18175848815', :url => 'http://askadoc.herokuapp.com/voice/make_call',
-      :application_sid => 'AP94d5494815c74e5bb58d919105eed1e4'})
+      :application_sid => 'AP3418c8bd94908cfd7581e36c052130a6'})
     
     puts "inspect =>" + @call.inspect
     puts "json => #{@call.to_json}"
