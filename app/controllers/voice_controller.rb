@@ -17,17 +17,14 @@ class VoiceController < ApplicationController
       :to => '+18175848815', :url => 'http://askadoc.herokuapp.com/voice/make_call',
       :application_sid => 'AP3418c8bd94908cfd7581e36c052130a6'})
     
-    puts "inspect =>" + @call.inspect
-    puts "json => #{@call.to_json}"
-    
   end
   
   def make_call
     
     puts "twilio called me"
     
-    @r = Twilio::Response.new
-    @r.addSay "I am talking to you."
+    @r = Twilio::TwiML::Response.new
+    @r.Say "Ask your question after the beep and we will text you as soon as we have a response."
     render :content_type => 'application/xml', :text => @r.respond
 
   end
