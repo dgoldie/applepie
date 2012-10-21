@@ -25,13 +25,15 @@ class VoiceController < ApplicationController
     
     puts "twilio called me"
     
-    render :action => "response.xml.builder", :layout => false
+    render :action => "response.xml", :layout => false
 
   end
   
   def recording
     puts "I am in RECORDING!!!"
     recording_url = params[:RecordingUrl]
+    user_id = User.find_by_phone(params[:Called][2, 10])
+    puts "THIS IS THE USER ID => #{user_id}"
     # email the recording url to the support team via sendhub.net ;)
     puts "recording_url #{recording_url}"
     
@@ -41,8 +43,10 @@ class VoiceController < ApplicationController
   def transcribing
     puts "I am in Transcribe!!!"
     transcribing_url = params[:TranscriptionText].to_s
-    # puts the transcribing url;)
+    # puts the transcribing url
     puts "transcribing_url #{transcribing_url}"
+    
+    Question.new
     
     render :xml => "<success/>"
   end
