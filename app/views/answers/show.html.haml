@@ -1,12 +1,14 @@
-%p#notice= notice
+.ten.offset-by-one.mobile-four
 
-%p
-  %b Name:
-  = @answer.name
-%p
-  %b Content:
-  = @answer.content
+  %p#notice= notice
 
-= link_to 'Edit', edit_answer_path(@answer)
-\|
-= link_to 'Back', answers_path
+  %p
+    %b Name:
+    = @answer.name
+  %p
+    %b Content:
+    = @answer.content
+
+  = link_to 'Edit', edit_answer_path(@answer)
+  \|
+  = link_to 'Back', answers_path
