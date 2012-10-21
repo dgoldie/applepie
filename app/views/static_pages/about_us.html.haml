@@ -1,22 +1,22 @@
-%h2.center
-  About Us
-  %br
-  %h2
+#about.columns.seven.centered
+
+  .highlight
+
+  %p
+    DocTalk is a collaboratively edited question and answer site for physicians and medical professionals. Registration required.
+    %br
+
+  .awesome.blue.large
     = link_to 'Sign up', new_user_registration_path
-%h3
-  DocTalk is a collaboratively edited question and answer site for physicians and medical professionals. Registration required.
-  %br
-  %br
 
--#%h3.center.fix_font_coloring
+  -#%h3.center.fix_font_coloring
 
-%p
-  %a{:href => "previous.html", :onClick => "history.back();return false;", :class => "btn" }
-    Go back
+  / %a{:href => "previous.html", :onClick => "history.back();return false;", :class => "foundicon-left-arrow" }
+       
 
--#    %a{:href => sign_up_path} Ready to register?
--#    %br
--#    %br
--#%p{ :style => "text-align: center; padding-bottom: 50px;" }
--#  .go_back_button.center
--#
+  -#    %a{:href => sign_up_path} Ready to register?
+  -#    %br
+  -#    %br
+  -#%p{ :style => "text-align: center; padding-bottom: 50px;" }
+  -#  .go_back_button.center
+  -#

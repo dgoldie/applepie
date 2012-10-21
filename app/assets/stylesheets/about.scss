@@ -1,0 +1,33 @@
+#about {
+  h2 { font-size: 1.9em; }
+  h3 {width: 80%;}
+  .awesome {
+    font-size: 2.3em;
+    margin: .2em 1em .9em 6em;
+    @media (max-width: 767px) {
+      width: 50%;
+      text-align: center;
+      margin: .7em 1em .9em 6em;
+      padding: .5em 0em;
+      font-size: 1.5em;
+      line-height: 1.4em;
+    }
+  }
+  .highlight {
+    background: rgb(250, 249, 255);
+    position: absolute;
+    width: 100%;
+    height: 6em;
+    top: 9.4em;
+    right: 0;
+    z-index: -20;
+    @media (max-width: 767px) {
+      top: .4em;
+      height: 16em;
+    }
+  }
+  p {
+    @include adjust-font-size-to(22px);
+  }
+  .foundicon-left-arrow { font-size: 3em; margin-top: 5em; }
+}
