@@ -24,39 +24,40 @@
 
 
     -if current_user ==  @question.user
-      = link_to 'Edit', edit_question_path(@question)
-      \|
-    = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
+      = link_to "<i class='foundicon-edit'></i>  ".html_safe, edit_question_path(@question), :class => "edit-link"
 
-    = link_to "<i class='foundicon-edit'></i>  ".html_safe, edit_question_path(@question), :class => "edit-link"
     #answer-it
       =link_to "Answer this", new_question_answer_path(@question)
 
-  #answers
-    %ol
-      -@question.answers.each do |answer|
-        %li.ten.columns.offset-by-one.mobile-four
-          %h5= answer.name
-          -#= pluralize answer.reputation_for(:votes).to_i, "vote" TODO:
-          %p= answer.content
-          = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
+  / #answers
+  /   %ol
+  /     -@question.answers.each do |answer|
+  /       %li.ten.columns.offset-by-one.mobile-four
+  /         %h5= answer.name
+  /         -#= pluralize answer.reputation_for(:votes).to_i, "vote" TODO:
+  /         %p= answer.content
+  /         = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
 
-%p
-  Answers:
-  %ul
-    -@question.answers.each do |answer|
-      %li
-        = answer.name
-        = answer.content
-        = answer.question.user.name
-        (
-        = answer.question.user.reputation_for(:votes).to_i
-        votes )
-        %br
-          Comments:
-        %ul
+  #answers.ten.columns.offset-by-one
+    %ul.clearfix
+      -@question.answers.each do |answer|
+        %li.clearfix
+          = answer.name
+          = answer.content
+          = link_to 'Add a comment', new_question_answer_comment_path(@question, answer), :class => "add-comment"
+
+          #answer-user
+            = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
+            (
+            %span
+              = answer.question.user.reputation_for(:votes).to_i
+            votes )
+
+        %ul.row
           -answer.comments.each do |comment|
-            %li
+            %li.columns.nine.offset-by-three.comment
               = comment.content
 
-        = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
+              #comment-user
+                = link_to "<i class='social foundicon-torso'></i> #{comment.user.name}".html_safe, @question.user,  :class => "user-link"
+

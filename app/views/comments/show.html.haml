@@ -1,9 +1,11 @@
-%p#notice= notice
+.eight.offset-by-two.mobile-four
+  %p#notice= notice
 
-%p
-  %b Content:
-  = @comment.content
+  %p
+    %b Content:
+    = @comment.content
+    = @comment.user
 
-= link_to 'Edit', edit_comment_path(@comment)
-\|
-= link_to 'Back', comments_path
+  = link_to 'Edit', edit_comment_path(@comment)
+  \|
+  = link_to 'Back', comments_path

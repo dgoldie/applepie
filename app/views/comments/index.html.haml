@@ -1,19 +1,20 @@
-%h1 Listing comments
+.eight.offset-by-two.mobile-four
+  %h1 Listing comments
 
-%table
-  %tr
-    %th Content
-    %th
-    %th
-    %th
-
-  - @comments.each do |comment|
+  %table
     %tr
-      %td= comment.content
-      %td= link_to 'Show', comment
-      %td= link_to 'Edit', edit_comment_path(comment)
-      %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
+      %th Content
+      %th
+      %th
+      %th
 
-%br
+    - @comments.each do |comment|
+      %tr
+        %td= comment.content
+        %td= link_to 'Show', comment
+        %td= link_to 'Edit', edit_comment_path(comment)
+        %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Comment', new_comment_path
+  %br
+
+  = link_to 'New Comment', new_comment_path
