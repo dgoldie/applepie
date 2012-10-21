@@ -28,8 +28,10 @@
   %section
     %ul.right
       %li
+        -#TODO: Ask Goldie
         - if @current_user.nil?
-          = link_to "#{@user.name}", user_path(@user.id.to_s)
+          = link_to 'Larry', '#'
+          -#= link_to "#{@user.name}", user_path(@user.id.to_s)
         -else
           = link_to "#{@current_user.name}", user_path(@current_user.id.to_s)
       %li
