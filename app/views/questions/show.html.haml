@@ -30,19 +30,16 @@
 
     #answer-it
       =link_to "A", new_question_answer_path(@question)
-
-  %p
-    Answers:
-    %ul
-      -@question.answers.each do |answer|
-        %li
-          = answer.name
-          = answer.content
-          = answer.user.name
-        -#%br
-      
-
-
+    %p
+      Answers:
+      %ul
+        -@question.answers.each do |answer|
+          %li
+            = answer.name
+            = answer.content
+            -#= answer.user.name
+          -#%br
+  
 
   %p
     =link_to "Add an answer", new_question_answer_path(@question)
