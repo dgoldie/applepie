@@ -44,7 +44,7 @@ class VoiceController < ApplicationController
     puts "recording_url #{recording_url}"
     puts "transcribe_data #{transcribe_data}"
     
-    @user.questions.create!(:title => transcribe_data, :content => recording_url)
+    @user.questions.create!(:title => transcribe_data, :content => "In case the translation is unclear, <a href=\"#{recording_url}\">Click here to listen to the original question</a> from the doctor who asked it.")
             
     render :xml => "<success/>"
   end
