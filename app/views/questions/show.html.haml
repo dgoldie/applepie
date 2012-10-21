@@ -3,6 +3,9 @@
   .question
     %p#notice= notice
 
+    %h3
+      Question:
+
     %h1
       = @question.title
     = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
@@ -20,7 +23,10 @@
       = link_to "<i class='general-enclosed foundicon-down-arrow'></i>  ".html_safe, vote_question_path(@question, type: "down"), method: "post"
 
 
-    / = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
+    -if current_user ==  @question.user
+      = link_to 'Edit', edit_question_path(@question)
+      \|
+    = link_to "<i class='foundicon-left-arrow'></i>  ".html_safe, questions_path
 
     = link_to "<i class='foundicon-edit'></i>  ".html_safe, edit_question_path(@question), :class => "edit-link"
     #answer-it
@@ -29,11 +35,28 @@
   #answers
     %ol
       -@question.answers.each do |answer|
-        %li.ten.colomns.offset-by-one.mobile-four
+        %li.ten.columns.offset-by-one.mobile-four
           %h5= answer.name
+          -#= pluralize answer.reputation_for(:votes).to_i, "vote" TODO:
           %p= answer.content
           = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
 
-          -#= answer.user.name
-        -#%br
+%p
+  Answers:
+  %ul
+    -@question.answers.each do |answer|
+      %li
+        = answer.name
+        = answer.content
+        = answer.question.user.name
+        (
+        = answer.question.user.reputation_for(:votes).to_i
+        votes )
+        %br
+          Comments:
+        %ul
+          -answer.comments.each do |comment|
+            %li
+              = comment.content
 
+        = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)

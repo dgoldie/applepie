@@ -43,8 +43,8 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
-
+    @comment = @answer.comments.new(params[:comment])
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to question_path(@question), notice: 'Comment was successfully created.' }
