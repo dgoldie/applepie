@@ -20,6 +20,8 @@
   margin-bottom: .5em;
   position: relative;
   box-shadow: transparentize(#eee,.5) 3px 1px 4px;
+      h3 { font-size: 1.6em; width: 80%; }
+
   @media (max-width: 767px) {
     padding: .2em .5em;
     h1 { font-size: 1.7em !important;}
@@ -34,7 +36,17 @@
     }
   }
   .foundicon-left-arrow { font-size: 1.7em; }
-  #tags { margin-bottom: 3em;}
+  #tags { margin-bottom: 3em; }
+}
+
+#question-votes {
+  top: -1px;
+  left: -10px;
+  border-radius: 0p 0px 10px 10px;
+  position: absolute;
+  background: rgb(245, 244, 255);
+  padding: 0 .4em;
+
 }
 
 .user-link {
