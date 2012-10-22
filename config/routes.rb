@@ -28,6 +28,7 @@ Applepie::Application.routes.draw do
 
   match '/about_us' => 'static_pages#about_us', :as => :about_us
 
+  match '/answers/accept_answer' => "answers#accept_answer"
   match '/voice' => "voice#index"
   match '/voice/make_call' => "voice#make_call"
   match '/voice/init_call' => "voice#init_call"

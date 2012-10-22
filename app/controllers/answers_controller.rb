@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
-  
+
   before_filter :load_question
-  
+
   # GET /answers
   # GET /answers.json
   def index
@@ -17,6 +17,10 @@ class AnswersController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @answers }
     end
+  end
+
+  def accept_answer
+    redirect_to question_path
   end
 
   # GET /answers/1
@@ -98,7 +102,7 @@ class AnswersController < ApplicationController
   end
 
   private
-  
+
   def load_question
     @question = Question.find(params[:question_id])
   end
