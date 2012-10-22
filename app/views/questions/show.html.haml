@@ -38,7 +38,7 @@
   /         %p= answer.content
   /         = link_to 'Add a comment', new_question_answer_comment_path(@question, answer)
 
-  #answers.ten.columns.offset-by-one
+  #answers.ten.columns.offset-by-two
     %ul.clearfix
       -@question.answers.each do |answer|
         %li.clearfix
@@ -55,7 +55,7 @@
 
         %ul.row
           -answer.comments.each do |comment|
-            %li.columns.nine.offset-by-three.comment
+            %li.columns.nine.offset-by-two.comment
               = comment.content
 
               #comment-user

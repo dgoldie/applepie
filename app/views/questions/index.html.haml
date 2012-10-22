@@ -1,15 +1,16 @@
-%h1#questions-title Listing questions
+%div.columns.ten.offset-by-one
+  %h1#questions-title Trending Questions
 
-%ol#questions-index
-  - @questions.each do |question|
-    %li
-      %article.question
-        %h3= link_to "#{question.title}", question_path(question.id)
-        = pluralize question.reputation_for(:votes).to_i, "vote"
-        = link_to "<i class='social foundicon-torso'></i> #{question.display_author}".html_safe, question.user, :class => "user-link"
-        %p= question.content
-        .tags= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+  %ol#questions-index
+    - @questions.each do |question|
+      %li
+        %article.question
+          %h3= link_to "#{question.title}", question_path(question.id)
+          = pluralize question.reputation_for(:votes).to_i, "vote"
+          = link_to "<i class='social foundicon-torso'></i> #{question.display_author}".html_safe, question.user, :class => "user-link"
+          %p= question.content
+          .tags= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
-= link_to 'New Question', new_question_path
-\|
-= link_to 'Show all', questions_path
+  = link_to 'New Question', new_question_path
+  \|
+  = link_to 'Show all', questions_path
