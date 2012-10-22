@@ -4,10 +4,14 @@
     position: relative;
     list-style: none;
     background: rgba(254, 255, 239,.7);
-    padding: 2em .6em 2.2em .9em;
+    padding: 2em .6em 2.7em .9em;
     margin-bottom: .5em;
     border:1px solid #eee;
     box-shadow: transparentize(#eee,.5) 3px 1px 4px;
+    @media (max-width: 767px) {
+      padding-top: 2.6em;
+    }
+
     &.accepted {
       border: 2px solid red;
     }
@@ -28,7 +32,11 @@
   .add-comment {
     position: absolute;
     bottom: .1em;
-    left: 1em;
+    left: 16em;
+    @media (max-width: 767px) {
+      left: .5em;
+    }
+
   }
   .comment {
     background: rgba(240, 240, 240,.5);
@@ -48,6 +56,18 @@
         top:0;
 
       }
+    }
+  }
+  #voting {
+    font-size: 1.3em;
+    padding: .1em;
+    left: .7em;
+    @media (max-width: 767px) {
+      top: 0;
+      height: 1.7em !important;
+      i { position:  relative; top: -5px;}
+
+
     }
   }
 }

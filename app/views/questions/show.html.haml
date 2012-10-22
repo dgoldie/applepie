@@ -45,6 +45,13 @@
           = answer.name
           = answer.content
           = link_to 'Add a comment', new_question_answer_comment_path(@question, answer), :class => "add-comment"
+          #voting
+            %b
+              = pluralize answer.reputation_for(:votes).to_i, "vote"
+            -#- if current_user && !current_user.voted_for?(haiku)
+            = link_to "<i class='general-enclosed foundicon-up-arrow'></i>  ".html_safe, vote_question_answer_path(answer, type: "up"), method: "post"
+            = link_to "<i class='general-enclosed foundicon-down-arrow'></i>  ".html_safe, vote_question_answer_path(answer, type: "down"), method: "post"
+
 
           #answer-user
             = link_to "<i class='social foundicon-torso'></i> #{@question.display_author}".html_safe, @question.user,  :class => "user-link"
