@@ -64,6 +64,8 @@
     left: .7em;
     @media (max-width: 767px) {
       top: 0;
+      right: 0em;
+      left: 0;
       height: 1.7em !important;
       i { position:  relative; top: -5px;}
 
